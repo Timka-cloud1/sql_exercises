@@ -1,1 +1,1 @@
-# sql_exercises
+# 24 sql_exercises
