@@ -1,4 +1,6 @@
-select InvoiceId, t.name as track_name, ar.name as artist_name from InvoiceLine i
-join Track t on i.TrackId = t.TrackId
-join Album a on t.AlbumId = a.AlbumId
-join Artist ar on a.ArtistId = ar.ArtistId
+SELECT i.InvoiceId AS Invoice_Number, t.Name AS Track_Name, ar.Name AS Artist_Name
+FROM InvoiceLine i
+         JOIN Track t ON i.TrackId = t.TrackId
+         JOIN Album al ON t.AlbumId = al.AlbumId
+         JOIN Artist ar ON al.ArtistId = ar.ArtistId
+GROUP BY t.Name;

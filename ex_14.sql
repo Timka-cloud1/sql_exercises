@@ -1,3 +1,4 @@
-select count(plt.TrackId), name from Playlist p
-left join PlaylistTrack plt on p.PlaylistId = plt.PlaylistId
-group by name;
+SELECT count(*) AS Total_Tracks, pl.Name AS Playlist_Name
+FROM Playlist pl
+         JOIN PlaylistTrack pt ON pl.PlaylistId = pt.PlaylistId
+GROUP BY pl.Name;

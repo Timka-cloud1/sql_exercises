@@ -1,9 +1,9 @@
-select max(total_sum) sum, fullname from (
-select sum(i.Total) total_sum, strftime('%Y', i.InvoiceDate) date, (e.LastName || ' ' || e.FirstName) as fullname
-from Employee e
-join Customer C on e.EmployeeId = C.SupportRepId
-join Invoice I on C.CustomerId = I.CustomerId
-where e.Title like '%sales%'
-   or '%agent%'
-group by fullname, date) where date = '2009'
+SELECT sum(iv.Total) AS 'Total Sales', e.FirstName || ' ' || e.LastName AS 'Sales Agent'
+FROM Invoice iv
+         JOIN Customer c ON iv.CustomerId = c.CustomerId
+         JOIN Employee e ON c.SupportRepId = e.EmployeeId
+WHERE iv.InvoiceDate LIKE '2009%'
+GROUP BY c.SupportRepId
+ORDER BY sum(iv.Total) DESC
+LIMIT 1;
 

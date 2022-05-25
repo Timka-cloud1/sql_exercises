@@ -1,2 +1,4 @@
-select BillingCountry, sum(total) as total from Invoice
-group by BillingCountry order by total desc; 
+SELECT BillingCountry, sum(Total)
+FROM Invoice
+GROUP BY BillingCountry
+ORDER BY sum(Total) DESC;

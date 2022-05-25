@@ -1,3 +1,4 @@
-select i.InvoiceId, count(il.InvoiceLineId) from Invoice i
-join InvoiceLine IL on i.InvoiceId = IL.InvoiceId
-group by i.InvoiceId
+SELECT iv.InvoiceId, count(*) AS Line_Items
+FROM Invoice iv
+         JOIN InvoiceLine il ON iv.InvoiceId = il.InvoiceId
+GROUP BY iv.InvoiceId;

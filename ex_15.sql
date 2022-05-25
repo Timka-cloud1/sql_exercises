@@ -1,8 +1,5 @@
-select t.name as track_name, 
-al.title as album_name, 
-mt.name as media_type, 
-g.name as genre_name 
-from track t
-join Album al on t.AlbumId = al.AlbumId
-join MediaType mt on t.MediaTypeId = mt.MediaTypeId
-join Genre g on t.GenreId = g.GenreId;
+SELECT tr.Name AS Track_Name, al.Title AS Album_Title, mt.Name AS Media_Type, g.Name AS Genre_Name
+FROM Track tr
+         JOIN Album al ON tr.AlbumId = al.AlbumId
+         JOIN MediaType mt ON tr.MediaTypeId = mt.MediaTypeId
+         JOIN Genre g ON tr.GenreId = g.GenreId;

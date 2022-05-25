@@ -1,2 +1,3 @@
-select count(InvoiceId) as number_of_positions from InvoiceLine where InvoiceId = 37
-group by InvoiceId;
+SELECT count(*) AS Invoice_Line_Count
+FROM InvoiceLine
+WHERE InvoiceId = 37;

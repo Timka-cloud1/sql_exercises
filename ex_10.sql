@@ -1,2 +1,3 @@
-select InvoiceId, count(invoiceId) as total_number from InvoiceLine 
-group by InvoiceId;
+SELECT InvoiceId, count(*) AS Invoice_Line_Count
+FROM InvoiceLine
+GROUP BY InvoiceId;

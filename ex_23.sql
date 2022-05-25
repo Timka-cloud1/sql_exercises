@@ -1,6 +1,7 @@
-select t.name, strftime('%Y', i.InvoiceDate) date,
-count(il.Quantity) as total from Invoice i
-join InvoiceLine il on i.InvoiceId = il.InvoiceId
-join Track t on il.TrackId = t.TrackId
-where  strftime('%Y', i.InvoiceDate) = '2013'
-group by t.name  order by total desc;
+SELECT t.Name, count(il.Quantity)
+FROM Track t
+         JOIN InvoiceLine il ON t.TrackId = il.TrackId
+         JOIN Invoice iv ON il.InvoiceId = iv.InvoiceId
+WHERE iv.InvoiceDate LIKE '2013%'
+GROUP BY t.Name
+ORDER BY count(il.Quantity) DESC;

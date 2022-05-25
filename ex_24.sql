@@ -1,3 +1,6 @@
-select t.name, count(il.Quantity) as count from InvoiceLine il
-join Track t on il.TrackId = t.TrackId
-group by t.name order by count desc limit 5;
+SELECT t.Name, count(il.Quantity)
+FROM Track t
+         JOIN InvoiceLine il ON t.TrackId = il.TrackId
+GROUP BY t.Name
+ORDER BY count(il.Quantity) DESC
+LIMIT 5;

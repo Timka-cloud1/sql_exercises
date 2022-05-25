@@ -1,3 +1,5 @@
-select strftime('%Y', InvoiceDate), sum(total) from Invoice 
-where strftime('%Y', InvoiceDate) = '2009' or strftime('%Y', InvoiceDate) = '2011'
-group by strftime('%Y', InvoiceDate);
+SELECT strftime('%Y', InvoiceDate) AS Year, sum(Total) AS Sales_Total
+FROM Invoice
+WHERE InvoiceDate LIKE '2009%'
+   OR InvoiceDate LIKE '2011%'
+GROUP BY strftime('%Y', InvoiceDate);
